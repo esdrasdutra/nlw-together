@@ -4,8 +4,15 @@ import { NavBar } from "../components/NavBar";
 import logoImg from '../assets/images/logo.svg';
 
 import '../styles/landing.scss';
+import { useHistory } from "react-router-dom";
 
 export function Landing() {
+  
+  const history = useHistory();
+
+  function handleToHome(){
+    history.push("/home");
+  }
 
   return (
     <div>
@@ -23,7 +30,7 @@ export function Landing() {
               Você será capaz de criar uma sala para receber a sua audiência e assim responder as questões mais relevantes
               sobre o seu conteúdo.</p>
 
-           <Button type="submit">
+           <Button onClick={ handleToHome } type="submit">
               EM DESENVOLVIMENTO
             </Button>
           </div>
