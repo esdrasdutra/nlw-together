@@ -4,15 +4,8 @@ import { NavBar } from "../components/NavBar";
 import logoImg from '../assets/images/logo.svg';
 
 import '../styles/landing.scss';
-import { useHistory } from "react-router-dom";
 
 export function Landing() {
-
-  const history = useHistory();
-
-  function handleHome(){
-    history.push('/home');
-  }
 
   return (
     <div>
