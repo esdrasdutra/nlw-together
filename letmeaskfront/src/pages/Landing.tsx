@@ -30,8 +30,8 @@ export function Landing() {
               Você será capaz de criar uma sala para receber a sua audiência e assim responder as questões mais relevantes
               sobre o seu conteúdo.</p>
 
-           <Button onClick={ handleHome } type="submit">
-              IR PARA A APLICAÇÃO
+           <Button type="submit">
+              EM DESENVOLVIMENTO
             </Button>
           </div>
         </main>
