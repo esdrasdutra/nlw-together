@@ -1,0 +1,27 @@
+:root{
+  --background-gradient: linear-gradient(93.58deg ,#4d378c,#313671 51.56%,#136053);
+}
+.styles_header{
+    border: unset;
+    background: var(--background-gradient);
+    height: 72px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .styles_container{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    margin: 0 24px;
+    justify-content: space-between;
+  }
+  
+  .styles_logoRocketseat{
+      width: 160px;
+      height: 30px;
+  }
+  
+  .styles_logo {
+    width: 220px;
+  }
