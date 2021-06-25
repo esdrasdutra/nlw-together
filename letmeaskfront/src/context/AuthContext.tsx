@@ -2,9 +2,9 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { auth, firebase } from "../services/firebase";
 
 type User = {
-    id: string | null;
-    name: string | null;
-    avatar: string | null;
+    id: string;
+    name: string;
+    avatar: string;
 }
 
 type AuthContextType = {
