@@ -31,7 +31,7 @@ export function Landing() {
               sobre o seu conteúdo.</p>
 
            <Button onClick={ handleToHome } type="submit">
-              EM DESENVOLVIMENTO
+              Conheça a Plataforma.
             </Button>
           </div>
         </main>
