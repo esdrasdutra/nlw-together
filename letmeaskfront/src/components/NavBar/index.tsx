@@ -1,5 +1,5 @@
-import logoNlw from "../assets/images/nlw_logo.svg";
-import '../styles/navBar.scss';
+import logoNlw from "../../assets/images/nlw_logo.svg";
+import './styles.scss';
 
 export function NavBar() {
     return (

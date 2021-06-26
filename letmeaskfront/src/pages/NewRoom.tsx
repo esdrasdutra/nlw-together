@@ -6,7 +6,8 @@ import { useAuth } from '../hooks/useAuth';
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 
-import '../styles/auth.scss';
+import '../pages/Home/styles.scss';
+
 import { database } from '../services/firebase';
 
 export function NewRoom() {

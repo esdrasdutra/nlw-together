@@ -1,9 +1,9 @@
-import { Button } from "../components/Button";
-import { Footer } from "../components/Footer";
-import { NavBar } from "../components/NavBar";
-import logoImg from '../assets/images/logo.svg';
+import { Button } from "../../components/Button";
+import { Footer } from "../../components/Footer";
+import { NavBar } from "../../components/NavBar";
+import logoImg from '../../assets/images/logo.svg';
 
-import '../styles/landing.scss';
+import './styles.scss';
 import { useHistory } from "react-router-dom";
 
 export function Landing() {

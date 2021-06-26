@@ -1,4 +1,4 @@
-import logoRckt from "../assets/images/rocket_logo.svg";
+import logoRckt from "../../assets/images/rocket_logo.svg";
 
 export function Footer() {
     return (

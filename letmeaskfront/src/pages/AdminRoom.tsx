@@ -11,7 +11,7 @@ import { RoomCode } from '../components/RoomCode';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
-import '../styles/rooms.scss';
+import '../pages/Room/styles.scss';
 
 type RoomParams = {
     id: string;
