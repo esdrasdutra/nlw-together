@@ -1,32 +1,45 @@
-
-import checkImg from '../assets/images/check.svg';
-import emptyImg from '../assets/images/answer.svg';
-import deleteImg from '../assets/images/delete.svg';
-
-import { useAuth } from '../hooks/useAuth';
+import { ReactNode } from 'react';
+import cx from 'classnames';
 
 import '../styles/question.scss';
 
-type QuestionProps ={
+
+type QuestionProps = {
   content: string,
   author: {
     name: string;
     avatar: string;
   }
+  children?: ReactNode,
+  isHighlighted?: boolean,
+  isAnswered?: boolean
 }
 
-export function Question({content, author}: QuestionProps) {
+export function Question({
+  content,
+  author,
+  isAnswered = false,
+  isHighlighted = false,
+  children,
+}: QuestionProps) {
 
   return (
-    <div id="room-question">      
-        <p>
-         {content}
-        </p>
+    <div className={cx(
+      'room-question',
+      { answered: isAnswered },
+      { highlighted: isHighlighted && !isAnswered},
+    )}>
+      <p>
+        {content}
+      </p>
 
       <footer>
         <div className="user-info">
-          <img src={ author.avatar } alt={ author.name } />
+          <img src={author.avatar} alt={author.name} />
           <span>{author.name}</span>
+        </div>
+        <div className="question-info">
+          {children}
         </div>
       </footer>
 

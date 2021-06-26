@@ -2,6 +2,8 @@ import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import logoImg from '../assets/images/logo.svg';
+import likeImg from '../assets/images/like.svg';
+
 import { Button } from '../components/Button';
 import { Question } from '../components/Question';
 import { RoomCode } from '../components/RoomCode';
@@ -51,6 +53,17 @@ export function Room() {
 
     }
 
+    async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
+        if (likeId) {
+            await database.ref(`/rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
+        } else {
+            await database.ref(`/rooms/${roomId}/questions/${questionId}/likes`).push({
+                authorId: user?.id,
+            })
+        }
+
+    }
+
     return (
         <div id="page-room">
             <header>
@@ -90,7 +103,24 @@ export function Room() {
                         <Question
                             key={question.id}
                             content={question.content}
-                            author={question.author} />
+                            author={question.author}
+                            isHighlighted={question.isHighlighted}
+                            isAnswered={question.isAnswered}>
+
+                            {!question.isAnswered && (
+                                <button
+                                    className={`like-button ${question.likeId ? 'liked' : ''}`}
+                                    type="button"
+                                    aria-label="Marcar como Gostei"
+                                    onClick={() => { handleLikeQuestion(question.id, question.likeId) }}
+                                >
+
+                                    {question.likeCount > 0 && <span>{question.likeCount}</span>}
+                                    <img src={likeImg} alt="Gostei" />
+
+                                </button>
+                            )}
+                        </Question>
                     )
                 })}
             </main>

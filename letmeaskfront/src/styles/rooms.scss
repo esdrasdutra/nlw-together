@@ -13,6 +13,15 @@
             > img {
                 max-height: 45px;
             }
+
+            > div {
+                display: flex;
+                gap: 16px;
+
+                button {
+                    height: 40px;
+                }
+            }
         }
     }
 
@@ -80,7 +89,7 @@
 
                 > span {
                     font-size: 14px;
-                    color: #737380;
+                    color: #0a0af5;
                     font-weight: 500;
 
                     button {
