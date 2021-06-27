@@ -11,6 +11,7 @@ import './styles.scss';
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 import googleImg from '../../assets/images/google-icon.svg';
+import joinImg from '../../assets/images/join.svg';
 
 export function Home() {
   const history = useHistory();
@@ -71,6 +72,7 @@ export function Home() {
               value={roomCode}
               />
             <Button onClick={ handleJoinRoom } type="submit">
+              <img src={ joinImg } alt="Entrar" />
               Entrar na Sala
             </Button>
           </form>

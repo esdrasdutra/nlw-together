@@ -9,6 +9,8 @@
 
     display: flex;
 
+    transition: hover 0.2s;
+
     div {
         background: #835afd;
         padding: 0 12px;
@@ -23,9 +25,16 @@
         align-self: center;
         flex: 1;
         padding: 0 16px 0 12px;
-        width: 230px;
         font-size: 14px;
         font-weight: 500;
 
+    }
+
+    &:hover{
+        border: 1px solid #6F4BD8;
+
+        div {
+            background: #6F4BD8;
+        }
     }
 }

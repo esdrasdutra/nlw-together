@@ -25,7 +25,7 @@
     }
 
     &:not(:disabled):hover{
-      filter: brightness(0.9);
+      background: #6F4BD8;
     }
 
     &:disabled{
