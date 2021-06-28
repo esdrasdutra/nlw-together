@@ -9,6 +9,7 @@ import logoImg from '../assets/images/logo.svg';
 import '../pages/Home/styles.scss';
 
 import { database } from '../services/firebase';
+import { DarkLightIcon } from './DarkLightIcon';
 
 export function NewRoom() {
 
@@ -33,7 +34,6 @@ export function NewRoom() {
 
   const { user } = useAuth();
 
-
   return (
     <div id="page-auth">
 
@@ -46,7 +46,7 @@ export function NewRoom() {
       <main>
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
-              <h2>Criar uma Nova Sala</h2>
+          <h2>Criar uma Nova Sala</h2>
 
           <form onSubmit={handleCreateRoom}>
             <input
