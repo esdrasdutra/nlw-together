@@ -1,9 +1,11 @@
 import { useHistory, useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 import logoImg from '../../assets/images/logo.svg';
 import deleteImg from '../../assets/images/delete.svg';
 import answerImg from '../../assets/images/answer.svg';
 import checkImg from '../../assets/images/check.svg';
+import exitImg from '../../assets/images/exit.svg';
 import emptyquestionsImg from '../../assets/images/empty-questions.svg';
 
 import { Button } from '../../components/Button';
@@ -11,11 +13,9 @@ import { Question } from '../../components/Question';
 import { RoomCode } from '../../components/RoomCode';
 import { useRoom } from '../../hooks/useRoom';
 import { database } from '../../services/firebase';
-
-import './styles.scss';
-import { useState } from 'react';
 import { CustomModal } from '../../components/CustomModal';
 
+import './styles.scss';
 
 type RoomParams = {
   id: string;
@@ -26,14 +26,16 @@ export function AdminRoom() {
   const roomId = params.id;
   const history = useHistory();
 
+  const [endRoomModal, setEndRoomModal] = useState(false);
+
+  const [deletQuestionModal, setDeleteQuestionModal] = useState(false);
+  const [questionId, setQuestionId] = useState('');
+
   const { title, questions } = useRoom(roomId);
-  const [isHidden, setModalHidden] = useState(true);
-  const [modalConfirm, setModalConfirm] = useState(false);
 
   async function handleDeleteQuestion(questionId: string) {
-    if (window.confirm("Tem Certeza que Deseja Excluir esta pergunta?")) {
-      await database.ref(`/rooms/${roomId}/questions/${questionId}`).remove();
-    }
+    await database.ref(`/rooms/${roomId}/questions/${questionId}`).remove();
+    setDeleteQuestionModal(false);
   }
 
   async function handleHighlightQuestion(questionId: string) {
@@ -49,12 +51,11 @@ export function AdminRoom() {
   }
 
   async function handleEndRoom(roomId: string) {
-    if (window.confirm("Você quer mesmo encerrar a sala?")) {
-      await database.ref(`/rooms/${roomId}`).update({
-        endedAt: new Date(),
-      });
-    }
-    return;
+    await database.ref(`/rooms/${roomId}`).update({
+      endedAt: new Date(),
+    });
+
+    history.push('/home')
   }
 
   return (
@@ -64,7 +65,7 @@ export function AdminRoom() {
           <img src={logoImg} alt="letmeask" />
           <div>
             <RoomCode code={roomId} />
-            <Button isOutLined onClick={() => { setModalHidden(true); handleEndRoom(roomId) }}> Encerrar a Sala </Button>
+            <Button isOutLined onClick={() => setEndRoomModal(true)}> Encerrar a Sala </Button>
           </div>
         </div>
       </header>
@@ -104,27 +105,45 @@ export function AdminRoom() {
               )}
               <button
                 type="button"
-                onClick={() => handleDeleteQuestion(question.id)}
+                className="delete-question"
+                onClick={() => { setDeleteQuestionModal(true); setQuestionId(question.id) }}
               >
                 <img src={deleteImg} alt="Remover Pergunta" />
               </button>
             </Question>
           )
         }) :
-          <div className="without-question">
-
-            <img className="empty-question" src={emptyquestionsImg} alt="Sem Perguntas" />
-            <h2>Nenhuma Pergunta por aqui...</h2>
-            <p>Envie o código desta sala para seus amigos e comece a responder perguntas!</p>
-
+          <div className="empty-question-container">
+            <div className="without-question">
+              <img className="empty-question" src={emptyquestionsImg} alt="Sem Perguntas" />
+              <h2>Nenhuma Pergunta por aqui...</h2>
+              <p>Envie o código desta sala para seus amigos e comece a responder perguntas!</p>
+            </div>
           </div>
         }
+
+        <CustomModal
+          icon={exitImg}
+          onHide={() => setEndRoomModal(false)}
+          onConfirm={() => handleEndRoom(roomId)}
+          show={endRoomModal}
+          title={"Encerrar Sala?"}
+          message={"Tem certeza que você deseja encerrar esta sala?"}
+          confirmText={"Sim, encerrar."}
+        />
+
+        <CustomModal
+          icon={deleteImg}
+          onHide={() => setDeleteQuestionModal(false)}
+          onConfirm={() => handleDeleteQuestion(questionId)}
+          show={deletQuestionModal}
+
+          title={"Excluir Pergunta?"}
+          message={"Tem certeza que você deseja deletar esta pergunta?"}
+          confirmText={"Sim, excluir."}
+        />
+
       </main>
-
-      <CustomModal
-      show={isHidden}
-      onShow={() => setModalHidden(false)}/>
-
     </div>
   )
 }

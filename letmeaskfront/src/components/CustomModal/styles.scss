@@ -1,4 +1,4 @@
-#modal{
+.modal{
     position: fixed;
     left: 0;
     top: 0;
@@ -9,20 +9,24 @@
     justify-content:center;
     align-items: center;
 
-    &.hidden{
-        visibility: hidden;
-
-    }
-
     .modal-content {
         width: 590px;
         height: 362px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%);
         background-color: #fff;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        padding: 70px;
+        padding: 64px;
+
+        > img {
+            width: auto;
+            height: 40px;
+            filter: invert(26%) sepia(96%) saturate(1543%) hue-rotate(325deg) brightness(92%) contrast(89%);
+        }
 
         > span{
             font-size: 24px;
@@ -50,17 +54,15 @@
                         filter:brightness(0.8)
                     }
 
-                &#confirm-button{
-                    background-color:#ea4335;
+                &#confirm{
+                    background-color:#E73F5D;
 
                     &:hover{
                         background:#D73754;
+                        }
                     }
                 }
-                }
-            }
-
-            
+            }            
         }
     }    
 }

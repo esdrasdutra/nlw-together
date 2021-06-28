@@ -1,33 +1,35 @@
-import exitImg from '../../assets/images/exit.svg';
+import { Modal } from 'react-bootstrap';
 import { Button } from '../Button';
 import './styles.scss';
 
 type modalProps = {
-    show:boolean
-    onShow: () => void
+  onHide: () => void
+  show: boolean
+  onConfirm: () => Promise<void>
+  title: string
+  message: string
+  confirmText: string
+  icon: string
 }
 
-export function CustomModal(props:modalProps) {
+export function CustomModal(props: modalProps) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <img src={props.icon} alt="Encerrar Sala" />
+      <span>{props.title}</span>
+      <p>
+        {props.message}
+      </p>
+      <div>
+        <Button onClick={props.onHide}>Cancelar</Button>
+        <Button id="confirm" onClick={props.onConfirm}>{props.confirmText}</Button>
+      </div>
 
-    if(!props.show){
-        return null;
-    }
-
-    return (
-        <div className="modal" 
-        {...props}>
-            <div className="modal-content" >
-                <img src={exitImg} alt="Terminar Sala" />
-                <span>Encerrar Sala</span>
-                <p>Tem certeza que você deseja encerrar esta sala?</p>
-
-                <div>
-                    <Button onClick={props.onShow}> Cancelar</Button>
-                    <Button id="confirm-button">Sim, Encerrar.</Button>
-                </div>
-            </div>
-            
-        </div>
-    
-    );
+    </Modal>
+  )
 }
