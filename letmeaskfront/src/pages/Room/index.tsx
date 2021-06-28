@@ -123,13 +123,20 @@ export function Room() {
                         </Question>
                     )
                 }) :
-                    <div className="empty-question-container">
-                        <div className="without-question">
-                            <img className="empty-question" src={emptyquestionsImg} alt="Sem Perguntas" />
-                            <h2>Nenhuma Pergunta por aqui...</h2>
-                            <p>Faça seu login e seja a primeira pessoa a fazer uma pergunta</p>
+                    !user ?
+                        <div className="empty-question-container">
+                            <div className="without-question">
+                                <img className="empty-question" src={emptyquestionsImg} alt="Sem Perguntas" />
+                                <h2>Nenhuma Pergunta por aqui...</h2>
+                                <p>Faça seu login e seja a primeira pessoa a fazer uma pergunta</p>
+                            </div>
+                        </div> : <div className="empty-question-container">
+                            <div className="without-question">
+                                <img className="empty-question" src={emptyquestionsImg} alt="Sem Perguntas" />
+                                <h2>Nenhuma Pergunta por aqui...</h2>
+                                <p>Seja a primeira pessoa a fazer uma pergunta</p>
+                            </div>
                         </div>
-                    </div>
 
                 }
             </main>
