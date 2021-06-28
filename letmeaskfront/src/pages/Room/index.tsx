@@ -8,6 +8,8 @@ import emptyquestionsImg from '../../assets/images/empty-questions.svg';
 import { Button } from '../../components/Button';
 import { Question } from '../../components/Question';
 import { RoomCode } from '../../components/RoomCode';
+import { DarkLightIcon } from '../DarkLightIcon';
+
 import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRoom';
 import { database } from '../../services/firebase';
@@ -69,8 +71,11 @@ export function Room() {
         <div id="page-room">
             <header>
                 <div className="content">
-                    <img src={logoImg} alt="letmeask" />
-                    <RoomCode code={roomId} />
+                    <div className="header-content">
+                        <img src={logoImg} alt="letmeask" /> 
+                        <DarkLightIcon />
+                    </div>
+                    <div><RoomCode code={roomId} /></div>
                 </div>
             </header>
 
@@ -137,7 +142,6 @@ export function Room() {
                                 <p>Seja a primeira pessoa a fazer uma pergunta</p>
                             </div>
                         </div>
-
                 }
             </main>
         </div>
