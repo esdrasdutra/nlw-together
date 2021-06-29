@@ -11,7 +11,7 @@ import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 import googleImg from '../../assets/images/google-icon.svg';
 import joinImg from '../../assets/images/join.svg';
-import { DarkLightIcon } from '../DarkLightIcon';
+import { DarkLightIcon } from '../../components/DarkLightIcon';
 
 export function Home() {
   const history = useHistory();
@@ -58,8 +58,9 @@ export function Home() {
 
       <main>
         <div className="main-content">
-            <img src={logoImg} alt="Letmeask" />
-       
+          <DarkLightIcon />
+          <img src={logoImg} alt="Letmeask" />
+
           <button onClick={handleCreateRoom} className="create-room">
             <img src={googleImg} alt="Logo do Google" />
             Crie sua sala com o Google

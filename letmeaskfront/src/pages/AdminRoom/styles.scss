@@ -3,8 +3,8 @@
     border-radius: 8px;
     overflow: hidden;
 
-    background: #fff;
-    border: 1px solid #835afd;
+    background: var(--white);
+    border: 1px solid var(--purple-300);
     cursor: pointer;
 
     display: flex;
@@ -12,7 +12,7 @@
     transition: hover 0.2s;
 
     div {
-        background: #835afd;
+        background: var(--purple-300);
         padding: 0 12px;
         display: flex;
         height: 100%;
@@ -53,31 +53,25 @@
             font-size: 14px;
             font-weight: 400;
             line-height: 21px;
-            color: #737380;
+            color:var(--white-200);
         }
     }
 }
 
-#page-room{
-    header{
-        .content{
-            > div {
-                button{
-                    &.outlined{                        
-                        border: 1px solid #835afd;
-                        color: #835afd;
+#page-room header .content > div{
+    button{
+        &.outlined{                        
+            border: 1px solid var(--purple-300);
+            color:var(--purple-300);
 
-                        transition: hover 0.2s;
+            transition: hover 0.2s;
 
-                        &:hover{
-                            background:#D73754;
-                            color: #fff;
-                            border: 1px solid #D73754;
-                        }
-                        
-                    }
-                }
+            &:hover{
+                background:var(--red-200);
+                color:var(--white);
+                border: 1px solid var(--red-200);
             }
+            
         }
     }
 }

@@ -5,8 +5,8 @@
 
   aside{
     flex: 7;
-    background: #835afd;
-    color: #fff;
+    background:var(--purple-300);
+    color:var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,7 +26,7 @@
       font-size: 24px;
       line-height: 32px;
       margin-top: 16px;
-      color: #f8f8f8;
+      color:var(--white-400);
     }
   }
     
@@ -35,7 +35,7 @@
     padding: 0 32px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;    
   }
   
   .main-content{
@@ -61,8 +61,8 @@
         height: 50px;
         border-radius: 8px;
         padding: 0 16px;
-        background: #fff;
-        border: 1px solid #a8a8b3;
+        background: var(--white);
+        border: 1px solid var(--white-200);
       }
 
       button {         
@@ -76,11 +76,11 @@
 
     p {
       font-size: 14px;
-      color: #737380;
+      color: var(--white-300);
       margin-top: 16px;
 
       a {
-        color: #e559f9
+        color:var(--pink-300);
       }
     }
   }
@@ -90,8 +90,8 @@
     height: 50px;
     border-radius: 8px;
     font-weight: 500;
-    background: #ea4335;
-    color: white;
+    background:var(--red-300);
+    color:var(--white);
 
     display: flex;
     justify-content: center;
@@ -99,20 +99,20 @@
     cursor: pointer;
     border: 0;
 
-    transition: filter 0.2s;
+    transition: 0.2s;
 
     img {
       margin-right: 8px;
     }
 
     &:hover{
-      filter: brightness(0.9);
+      background-color:var(--red-200);
     }
   }
 
   .separator {
     font-size: 14px;
-    color: #a8a8b3;
+    color:var(--white-200);
     margin: 32px;
     display: flex;
     align-items: center;
@@ -121,7 +121,7 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: #a8a8b3;
+      background:var(--white-200);
       margin-right: 16px;
     }
 
@@ -129,7 +129,7 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: #a8a8b3;
+      background:var(--white-200);
       margin-left: 16px;
     }
   }

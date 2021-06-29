@@ -8,7 +8,7 @@ import emptyquestionsImg from '../../assets/images/empty-questions.svg';
 import { Button } from '../../components/Button';
 import { Question } from '../../components/Question';
 import { RoomCode } from '../../components/RoomCode';
-import { DarkLightIcon } from '../DarkLightIcon';
+import { DarkLightIcon } from '../../components/DarkLightIcon';
 
 import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRoom';

@@ -9,7 +9,6 @@ import logoImg from '../assets/images/logo.svg';
 import '../pages/Home/styles.scss';
 
 import { database } from '../services/firebase';
-import { DarkLightIcon } from './DarkLightIcon';
 
 export function NewRoom() {
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { animated, useSpring} from 'react-spring';
 
 const properties = {
@@ -23,11 +23,16 @@ const properties = {
   springConfig: { mass: 4, tension: 250, friction: 35 }
 };
 
+type DarkLightProps ={
+  children: ReactNode,
+  changeTheme: string
+}
+
 export function DarkLightIcon (){
   
   const [isDarkMode, setDarkMode] = useState(true);
 
-  const { r, transform, cx, cy, opacity, fill, stroke } = properties[
+  const { r, transform, cx, cy, opacity, fill, stroke} = properties[
     isDarkMode ? "dark" : "light"
   ];
   
@@ -41,7 +46,7 @@ export function DarkLightIcon (){
   }
 
   return (
-    <div className={`${isDarkMode ? 'light-mode': 'dark-mode'}`}>
+    <div className={`${isDarkMode ? 'light-mode': 'dark-mode'}`}>    
     <animated.svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -80,8 +85,8 @@ export function DarkLightIcon (){
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
       </animated.g>
-
     </animated.svg>
+
     </div>
   );
 }

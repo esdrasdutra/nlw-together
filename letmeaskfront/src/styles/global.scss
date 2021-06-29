@@ -1,5 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;500&display=swap');
 
+:root{
+    --gray-100:hsl(255, 45%, 25%);
+    --gray-200:hsl(255, 25%, 46%);
+    --gray-300:hsl(255, 10%, 67%);
+    --gray-400:hsl(255, 10%, 83%);
+    --gray-500:hsl(255, 10%, 96%);   
+
+    --purple-100:hsl(255,100%, 25%);
+    --purple-200:hsl(255,100%, 46%);
+    --purple-300:hsl(255, 100%, 67%);
+    --purple-400:hsl(255, 100%, 83%);
+    --purple-500:hsl(255, 100%,96%);
+
+    --red-100:hsl(349, 78%,25%);
+    --red-200:hsl(349, 78%, 46%);
+    --red-300:hsl(349, 78%, 58%);
+    --red-400:hsl(349, 78%, 83%);
+    --red-500:hsl(349, 78%,96%);
+
+    --white-100:hsl(210, 3%, 25%);
+    --white-200:hsl(210, 3%, 46%);    
+    --white-300:hsl(210, 3%, 67%);
+    --white-400:hsl(210, 3%, 90%);
+    --white-400:hsl(210, 3%,97%);
+
+    --pink-100:hsl(293, 93%,25%);
+    --pink-200:hsl(293, 93%,46%);
+    --pink-300:hsl(293, 93%, 66%);
+    --pink-400:hsl(293, 93%,83%);
+    --pink-500:hsl(293, 93%,96%);
+
+    --white:hsl(0,0%, 100%);
+    --black:hsl(240, 6%, 17%);
+
+    --shadow-color: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +44,8 @@
 }
 
 body {
-    background-color: #F8F8F8 !important;
-    color: #29292e
+    background-color: var(--white-400) !important;
+    color: var(--black);
 }
 
 

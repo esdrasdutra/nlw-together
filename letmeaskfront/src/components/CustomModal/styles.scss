@@ -4,7 +4,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color:var(--shadow-color);
     display: flex;
     justify-content:center;
     align-items: center;
@@ -15,7 +15,7 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%);
-        background-color: #fff;
+        background-color:var(--white);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -38,7 +38,7 @@
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
             font-size: 16px;
-            color: #737380;
+            color:var(--white-200);
         }
 
         div{           
@@ -47,18 +47,18 @@
 
             > button{
                 &.button{
-                    background-color: #737380;
+                    background-color:var(--white-200);
                     transition: filter 0.2s;
 
                     &:hover{
-                        filter:brightness(0.8)
+                        filter:brightness(0.8);
                     }
 
                 &#confirm{
-                    background-color:#E73F5D;
+                    background-color:var(--red-300);
 
                     &:hover{
-                        background:#D73754;
+                        background:var(--red-200);
                         }
                     }
                 }

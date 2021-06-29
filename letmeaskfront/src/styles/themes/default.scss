@@ -1,6 +1,12 @@
+$default: (
+  primary: var(--white),
+  secondary:var(--purple-300),
+  tertiary: var(--pink-300),
+);
 
+/* 
 $default: (
   primary: #3983e5,
   secondary: #eddc2a,
   tertiary: #cacaca,
-);
+); */

@@ -1,5 +1,5 @@
 import {ReactNode, useContext} from "react";
-import styles from "./ThemedButton.module.scss";
+import styles from "../../pages/ThemeTesting/ThemeTesting.module.scss";
 
 import { ThemeContext } from '../../context/ThemeContext';
 

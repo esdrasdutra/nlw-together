@@ -16,6 +16,7 @@ import { database } from '../../services/firebase';
 import { CustomModal } from '../../components/CustomModal';
 
 import './styles.scss';
+import { DarkLightIcon } from '../../components/DarkLightIcon';
 
 type RoomParams = {
   id: string;
@@ -62,11 +63,16 @@ export function AdminRoom() {
     <div id="page-room">
       <header>
         <div className="content">
-          <img src={logoImg} alt="letmeask" />
+          <div>
+            <img src={logoImg} alt="letmeask" />
+            <DarkLightIcon />
+          </div>
+
           <div>
             <RoomCode code={roomId} />
             <Button isOutLined onClick={() => setEndRoomModal(true)}> Encerrar a Sala </Button>
           </div>
+
         </div>
       </header>
 
