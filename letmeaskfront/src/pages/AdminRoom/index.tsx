@@ -16,7 +16,7 @@ import { database } from '../../services/firebase';
 import { CustomModal } from '../../components/CustomModal';
 
 import './styles.scss';
-import { DarkLightIcon } from '../../components/DarkLightIcon';
+
 
 type RoomParams = {
   id: string;
@@ -65,7 +65,7 @@ export function AdminRoom() {
         <div className="content">
           <div>
             <img src={logoImg} alt="letmeask" />
-            <DarkLightIcon />
+ 
           </div>
 
           <div>

@@ -1,16 +1,15 @@
-import React, {useContext} from "react";
+import {useContext} from "react";
 import styles from "./Header.module.scss";
+
 import { ThemeContext } from '../../context/ThemeContext';
 
-const Header = () => {
+export function Header() {
 
     const { globalTheme } = useContext(ThemeContext);
 
     return(
         <header className={`${styles.header} ${styles[globalTheme]}`}>
-            <p className={styles[globalTheme]}>Header - {globalTheme}</p>
+            <p className={styles[globalTheme]}>HEADER - {globalTheme}</p>
         </header>
     )
 };
-
-export default Header;

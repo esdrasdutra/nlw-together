@@ -8,7 +8,6 @@ import emptyquestionsImg from '../../assets/images/empty-questions.svg';
 import { Button } from '../../components/Button';
 import { Question } from '../../components/Question';
 import { RoomCode } from '../../components/RoomCode';
-import { DarkLightIcon } from '../../components/DarkLightIcon';
 
 import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRoom';
@@ -72,8 +71,7 @@ export function Room() {
             <header>
                 <div className="content">
                     <div className="header-content">
-                        <img src={logoImg} alt="letmeask" /> 
-                        <DarkLightIcon />
+                        <img src={logoImg} alt="letmeask" />
                     </div>
                     <div><RoomCode code={roomId} /></div>
                 </div>

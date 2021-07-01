@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;500&display=swap');
 
+@import "./themes/index.scss";
+
 :root{
     --gray-100:hsl(255, 45%, 25%);
     --gray-200:hsl(255, 25%, 46%);
@@ -44,8 +46,8 @@
 }
 
 body {
-    background-color: var(--white-400) !important;
-    color: var(--black);
+    @include themify('background', 'primary');
+    @include themify('color', 'secondary');
 }
 
 
