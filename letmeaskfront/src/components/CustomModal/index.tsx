@@ -20,7 +20,7 @@ export function CustomModal(props: modalProps) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <img src={props.icon} alt="Encerrar Sala" />
+      <img src={props.icon} alt="Icone" />
       <span>{props.title}</span>
       <p>
         {props.message}

@@ -1,18 +1,17 @@
-import { Header }  from '../../components/Header';
-import { ThemedButton } from '../../components/ToggleMode';
+import { Header } from '../../components/Header';
+import { ToggleButton } from '../../components/ToggleButton';
 import styles from './ThemeTesting.module.scss';
- 
+
 
 export function ThemeTesting() {
 
   return (
-      <div className={styles.app}>
-        <Header/>        
-         
-        <div className={styles.buttons}>
-        <ThemedButton />
-        </div>
+    <div className={styles.app}>
+      <Header />
 
+      <div className={styles.buttons}>
+          <ToggleButton />
       </div>
+    </div>
   );
 }

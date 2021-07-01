@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { animated, useSpring } from 'react-spring';
-import styles from "../../pages/ThemeTesting/ThemeTesting.module.scss";
 
 import { DARK_THEME, DEFAULT_THEME, ThemeContext } from '../../context/ThemeContext';
 
@@ -26,17 +25,16 @@ const properties = {
     springConfig: { mass: 4, tension: 250, friction: 35 }
 };
 
-export function ThemedButton() {
+export function ToggleButton() {
 
     const { globalTheme, setGlobalTheme } = useContext(ThemeContext);
     
     const [isDarkMode, setDarkMode] = useState(true);
 
-    const onClick = () => {
-
-        setGlobalTheme(isDarkMode ? DARK_THEME : DEFAULT_THEME);
+    function handleToggle(){
+        setGlobalTheme(isDarkMode ? DARK_THEME : DEFAULT_THEME);        
+        setDarkMode(previous => !previous);
     }
-
 
     const { r, transform, cx, cy, opacity, fill, stroke } = properties[
         isDarkMode ? "dark" : "light"
@@ -47,12 +45,9 @@ export function ThemedButton() {
     const maskedCircleProps = useSpring({ cx, cy, config: properties.springConfig });
     const linesProps = useSpring({ opacity, config: properties.springConfig });
 
-    function toggleDarkMode() {
-        setDarkMode(previous => !previous);
-    }
+ 
 
     return (
-        <button className={`${styles[globalTheme]}`} onClick={onClick}>
             <animated.svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -62,8 +57,8 @@ export function ThemedButton() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                stroke={stroke}
-                onClick={toggleDarkMode}
+                stroke={ stroke }
+                onClick={ handleToggle }
                 style={{
                     cursor: "pointer",
                     ...svgContainerProps
@@ -73,7 +68,6 @@ export function ThemedButton() {
                     <rect x="0" y="0" width="100%" height="100%" fill="white" />
                     <animated.circle cx={maskedCircleProps.cx} cy={maskedCircleProps.cy} r="9" fill="black" />
                 </mask>
-
                 <animated.circle
                     cx="12"
                     cy="12"
@@ -92,6 +86,5 @@ export function ThemedButton() {
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                 </animated.g>
             </animated.svg>
-        </button>
     )
 };
