@@ -5,6 +5,7 @@
     @include themify('background', 'primary');
     text-align: center;
     font-weight: 600;
+    
     p {
         font-size: 28px;
         @include themify('color', 'secondary');
